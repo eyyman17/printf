@@ -52,6 +52,7 @@ int _printf(const char *format, ...)
 				num++;
 		}
 		format++;
+		}
 	}
 
 	va_end(args);
