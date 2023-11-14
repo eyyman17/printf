@@ -40,7 +40,7 @@ int _format(const char *format, va_list args, int *num)
 				write(1, str, strlen(str));
 				num += strlen(str) - 1;
 			}
-			else if (*format == %)
+			else if (*format == '%')
 			{
 				write(1, "%", 1);
 				num++;
