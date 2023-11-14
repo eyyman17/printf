@@ -28,6 +28,9 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
+			format++;
+			if (*format == '\0')
+				break;
 			_format(format, args, &num);
 		}
 		format++;

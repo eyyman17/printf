@@ -63,9 +63,6 @@ int _format(const char *format, va_list args, int *num)
 {
 	char *str;
 
-	format++;
-	if (*format == '\0')
-		return (0);
 	if (*format == 'c')
 		handle_char(args, num);
 	else if (*format == 's')
