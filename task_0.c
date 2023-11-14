@@ -66,6 +66,13 @@ int _format(const char *format, va_list args, int *num)
 				write(1, "%", 1);
 				(*num)++;
 			}
+			else
+			{
+				write(1, "%", 1);
+				(*num)++;
+				write(1, format, 1);
+				(*num)++;
+			}
 		}
 		format++;
 	}
