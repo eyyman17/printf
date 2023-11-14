@@ -14,7 +14,7 @@ int print_int(va_list args, int *num)
 	{
 		write(1, "-2147483648", 11);
 		*num += 11;
-		return 0;
+		return (0);
 	}
 
 	if (n < 0)
@@ -38,5 +38,5 @@ int print_int(va_list args, int *num)
 		i++;
 	}
 	*num += i;
-	return 0;
+	return (0);
 }
