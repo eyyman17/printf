@@ -13,7 +13,7 @@ int print_int(va_list args, int *num)
 	n = n / 10;
 	m = n;
 
-	if (lastd < 0)
+	if (n < 0 || lastd < 0)
 	{
 		_putchar('-');
 		n = -n;
