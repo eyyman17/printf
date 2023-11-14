@@ -1,5 +1,27 @@
 #include "main.h"
 
+/**
+ * handle_string - handles case of string
+ * @str: string
+ * @num: int
+ *
+ * Return: nothing
+ **/
+
+void handle_string(const char *str, int **num)
+{
+	if (str == NULL)
+	{
+		write(1, "(null)", sizeof("(null)") - 1);
+		(**num) += 6;
+	}
+	else
+	{
+		write(1, str, strlen(str));
+		(*num) += strlen(str);
+	}
+}
+
 
 /**
  * _format - handles formatting of c, str and %
@@ -37,16 +59,7 @@ int _format(const char *format, va_list args, int *num)
 			else if (*format == 's')
 			{
 				str = va_arg(args, char *);
-				if (str == NULL)
-				{
-					write(1, "(null)", sizeof("(null)") - 1);
-					(*num) += 6;
-				}
-				else
-				{
-					write(1, str, strlen(str));
-					(*num) += strlen(str) - 1;
-				}
+				handle_string(str, *num);
 			}
 			else if (*format == '%')
 			{
