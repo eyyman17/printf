@@ -8,12 +8,12 @@
  * Return: nothing
  **/
 
-void handle_string(const char *str, int **num)
+void handle_string(const char *str, int *num)
 {
 	if (str == NULL)
 	{
 		write(1, "(null)", sizeof("(null)") - 1);
-		(**num) += 6;
+		(*num) += 6;
 	}
 	else
 	{
@@ -59,7 +59,7 @@ int _format(const char *format, va_list args, int *num)
 			else if (*format == 's')
 			{
 				str = va_arg(args, char *);
-				handle_string(str, *num);
+				handle_string(str, num);
 			}
 			else if (*format == '%')
 			{
