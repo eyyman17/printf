@@ -37,8 +37,16 @@ int _format(const char *format, va_list args, int *num)
 			else if (*format == 's')
 			{
 				str = va_arg(args, char *);
-				write(1, str, strlen(str));
-				(*num) += strlen(str) - 1;
+				if (str == NULL)
+				{
+					write(1, "(null)", sizeof("(null)") - 1);
+					(*num) += 6;
+				}
+				else
+				{
+					write(1, str, strlen(str));
+					(*num) += strlen(str) - 1;
+				}
 			}
 			else if (*format == '%')
 			{
