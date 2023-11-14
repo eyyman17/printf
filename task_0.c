@@ -50,7 +50,7 @@ void handle_percent(int *num)
 }
 
 /**
- * _format - handles formatting of c, s and %
+ * _format - handles formatting of c, s, i, d and %
  *
  * @format: format
  * @args: arguments
