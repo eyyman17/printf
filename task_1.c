@@ -28,5 +28,5 @@ int print_int(va_list args, int *num)
 		k = k / 10;
 		(*num)++;
 	}
-	return (num);
+	return (0);
 }
