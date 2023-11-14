@@ -7,9 +7,11 @@
 int print_int(va_list args, int *num)
 {
 	int n = va_arg(args, int);
-	int m, k = 1, i = 0, j;
+	int m, k = 1, i = 0, j, lastd = n % 10;
 
-	if (n < 0)
+	n = n / 10;
+
+	if (n < 0 || lastd < 0)
 	{
 		_putchar('-');
 		n = -n;
@@ -30,5 +32,6 @@ int print_int(va_list args, int *num)
 		i++;
 	}
 	*num += i;
+	_putchar(lastd + '0');
 	return (0);
 }
