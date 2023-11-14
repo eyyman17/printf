@@ -25,6 +25,7 @@ void handle_string(const char *str, int *num)
 /**
  * unkown_specif - handles Unknown format specifier
  * @num : pointer to int
+ * @format: format 
  *
  * Return: nothing
  **/
