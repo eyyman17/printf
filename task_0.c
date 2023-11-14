@@ -72,6 +72,8 @@ int _format(const char *format, va_list args, int *num)
 	}
 	else if (*format == '%')
 		handle_percent(num);
+	else if (*format == 'd' || *format == 'i')
+		print_int(args, num);
 	else
 	{
 		handle_percent(num);

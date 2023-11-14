@@ -15,7 +15,8 @@ int _format(const char *format, va_list args, int *num);
 void handle_string(const char *str, int *num);
 void handle_percent(int *num);
 void handle_char(va_list args, int *num);
-
+int _putchar(char c);
+int print_int(va_list args, int *num);
 
 
 
