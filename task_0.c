@@ -29,7 +29,7 @@ void handle_string(const char *str, int *num)
  * Return: nothing
  **/
 
-void unkown_specif(int *num)
+void unkown_specif(const char format, int *num)
 {
 	 write(1, "%", 1);
 	 (*num)++;
@@ -81,7 +81,7 @@ int _format(const char *format, va_list args, int *num)
 				(*num)++;
 			}
 			else
-				unkown_specif(num);
+				unkown_specif(format, num);
 		}
 		format++;
 	}
