@@ -22,52 +22,76 @@ void handle_string(const char *str, int *num)
 	}
 }
 
+/**
+ * handle_char - handles character
+ * @args: arguments
+ * @num: counter
+ *
+ * Return: nothing
+ **/
+
 void handle_char(va_list args, int *num)
 {
-    char c = va_arg(args, int);
-    write(1, &c, 1);
-    (*num)++;
+	char c = va_arg(args, int);
+
+	write(1, &c, 1);
+	(*num)++;
 }
+
+/**
+ * handle_percent - handles %
+ * @num: num
+ **/
 
 void handle_percent(int *num)
 {
-    write(1, "%", 1);
-    (*num)++;
+	write(1, "%", 1);
+	(*num)++;
 }
+
+/**
+ * _format - handles formatting of c, s and %
+ *
+ * @format: format
+ * @args: arguments
+ * @num: count
+ *
+ * Return: 0
+ **/
 
 int _format(const char *format, va_list args, int *num)
 {
 	char *str;
-    while (*format)
-    {
-        if (*format != '%')
-        {
-            write(1, format, 1);
-            (*num)++;
-        }
-        else
-        {
-            format++;
-            if (*format == '\0')
-                break;
 
-            if (*format == 'c')
-                handle_char(args, num);
-            else if (*format == 's')
-	    {
-		    str = va_arg(args, char *);
-		    handle_string(str, num);
-	    }
-            else if (*format == '%')
-                handle_percent(num);
-            else
-            {
-                handle_percent(num);
-                write(1, format, 1);
-                (*num)++;
-            }
-        }
-        format++;
-    }
-    return 0;
+	while (*format)
+	{
+		if (*format != '%')
+		{
+			write(1, format, 1);
+			(*num)++;
+		}
+		else
+		{
+			format++;
+			if (*format == '\0')
+				break;
+			if (*format == 'c')
+				handle_char(args, num);
+			else if (*format == 's')
+			{
+				str = va_arg(args, char *);
+				handle_string(str, num);
+			}
+			else if (*format == '%')
+				handle_percent(num);
+			else
+			{
+				handle_percent(num);
+				write(1, format, 1);
+				(*num)++;
+			}
+		}
+		format++;
+	}
+	return (0);
 }
