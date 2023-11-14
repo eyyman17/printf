@@ -22,6 +22,20 @@ void handle_string(const char *str, int *num)
 	}
 }
 
+/**
+ * unkown_specif - handles Unknown format specifier
+ * @num : pointer to int
+ *
+ * Return: nothing
+ **/
+
+void unkown_specif(int *num)
+{
+	 write(1, "%", 1);
+	 (*num)++;
+	 write(1, format, 1);
+	 (*num)++;
+}
 
 /**
  * _format - handles formatting of c, str and %
@@ -67,12 +81,7 @@ int _format(const char *format, va_list args, int *num)
 				(*num)++;
 			}
 			else
-			{
-				write(1, "%", 1);
-				(*num)++;
-				write(1, format, 1);
-				(*num)++;
-			}
+				unkown_specif(num);
 		}
 		format++;
 	}
