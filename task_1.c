@@ -2,6 +2,7 @@
 /**
  * print_int - prints integer
  * @args: argument
+ * @num: count
  * Return: nbr of bytes
  */
 int print_int(va_list args, int *num)
@@ -10,15 +11,16 @@ int print_int(va_list args, int *num)
 	int m, k = 1, i = 0, j, lastd = n % 10;
 
 	n = n / 10;
+	m = n;
 
 	if (lastd < 0)
 	{
 		_putchar('-');
 		n = -n;
-		lastd = -lastd;
+		m = -m;
+		lastd = -last;
 		i++;
 	}
-	m = n;
 	if (m > 0)
 	{
 		while (m / 10 != 0)
