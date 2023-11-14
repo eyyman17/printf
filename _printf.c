@@ -19,8 +19,19 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	_format(format, args, &num);
-
+	while (*format)
+	{
+		if (*format != '%')
+		{
+			write(1, format, 1);
+			num++;
+		}
+		else
+		{
+			_format(format, args, &num);
+		}
+		format++;
+	}
 
 	va_end(args);
 	return (num);

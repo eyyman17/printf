@@ -63,35 +63,24 @@ int _format(const char *format, va_list args, int *num)
 {
 	char *str;
 
-	while (*format)
+	format++;
+	if (*format == '\0')
+		return (0);
+	if (*format == 'c')
+		handle_char(args, num);
+	else if (*format == 's')
 	{
-		if (*format != '%')
-		{
-			write(1, format, 1);
-			(*num)++;
-		}
-		else
-		{
-			format++;
-			if (*format == '\0')
-				break;
-			if (*format == 'c')
-				handle_char(args, num);
-			else if (*format == 's')
-			{
-				str = va_arg(args, char *);
-				handle_string(str, num);
-			}
-			else if (*format == '%')
-				handle_percent(num);
-			else
-			{
-				handle_percent(num);
-				write(1, format, 1);
-				(*num)++;
-			}
-		}
-		format++;
+		str = va_arg(args, char *);
+		handle_string(str, num);
 	}
+	else if (*format == '%')
+		handle_percent(num);
+	else
+	{
+		handle_percent(num);
+		write(1, format, 1);
+		(*num)++;
+	}
+
 	return (0);
 }
