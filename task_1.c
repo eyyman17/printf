@@ -11,7 +11,7 @@ int print_int(va_list args, int *num)
 
 	n = n / 10;
 
-	if (n < 0)
+	if (lastd < 0)
 	{
 		_putchar('-');
 		n = -n;
@@ -19,18 +19,21 @@ int print_int(va_list args, int *num)
 		i++;
 	}
 	m = n;
-	while (m / 10 != 0)
+	if (m > 0)
 	{
-		m = m / 10;
-		k = k * 10;
-	}
-	while (k > 0)
-	{
-		j = n / k;
-		_putchar(j + '0');
-		n = n - (j * k);
-		k = k / 10;
-		i++;
+		while (m / 10 != 0)
+		{
+			m = m / 10;
+			k = k * 10;
+		}
+		while (k > 0)
+		{
+			j = n / k;
+			_putchar(j + '0');
+			n = n - (j * k);
+			k = k / 10;
+			i++;
+		}
 	}
 	*num += i;
 	_putchar(lastd + '0');
